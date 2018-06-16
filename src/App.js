@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Header from './components/Header'
 import Coin from './components/Coin'
 import SearchBar from './components/SearchBar'
 const API = 'https://api.coinmarketcap.com/v1/ticker/?limit=2000'
 
-class App extends React.Component{
+class App extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -54,11 +54,9 @@ class App extends React.Component{
             <div className='App'>
                 <SearchBar change={(term) => this.onInputChange(term)} length={this.state.length} />
                 <table>
-                    <thead>
-                        <Header onSort={(data, type)=>this.handleSort(data, type)}
-                                    coins={this.state.coins}
-                                    sort={this.state.sort_state} />
-                    </thead>
+                    <Header onSort={(data, type)=>this.handleSort(data, type)}
+                                coins={this.state.coins}
+                                sort={this.state.sort_state} />
                     <tbody>
                         {this.state.coins.map((coin,i)=>{
                             return(
