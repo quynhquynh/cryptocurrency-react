@@ -1,18 +1,30 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Coin = (props) => {
-    return (
-        
-        <tr>    
-            <td>{props.name}</td>
-            <td style={{textAlign: 'center'}}>{props.rank}</td>
-            <td style={{textAlign: 'center'}}>{props.price_usd}</td>
-            <td style={{textAlign: 'center'}}>{props.percent_change_1h}%</td>
-        </tr>
-         
-    )
+class Coin extends React.Component{
+   shouldComponentUpdate(nextProps){
+       return this.props.name !== nextProps.name
+   }
+
+    render(){
+        return (
+            <tr>    
+                <td>{this.props.name}</td>
+                <td style={{textAlign: 'center'}}>{this.props.rank}</td>
+                <td style={{textAlign: 'center'}}>{this.props.price_usd}</td>
+                <td style={{textAlign: 'center'}}>{this.props.percent_change_1h}%</td>
+            </tr>
+        )
+    }
 }
 
-export default Coin
 
-            
+Coin.propTypes = {
+    name: PropTypes.string.isRequired,
+    rank: PropTypes.string.isRequired,
+    price_usd: PropTypes.string,
+    percent_change_1h: PropTypes.string
+}
+
+
+export default Coin

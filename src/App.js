@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Coin from './components/Coin'
-import './App.css'
+import SearchBar from './components/SearchBar'
 const API = 'https://api.coinmarketcap.com/v1/ticker/?limit=2000'
 
 class App extends React.Component{
@@ -9,6 +9,8 @@ class App extends React.Component{
         super(props)
         this.state = {
             coins: [],
+            length: null,
+            sort_state: 'rank',
             isLoading: true
         }        
         this.lockedCoins = []
@@ -20,42 +22,42 @@ class App extends React.Component{
             .then(data=>{
                 this.setState({
                     coins: data,
+                    length: data.length,
                     isLoading: false
                 })
                 this.lockedCoins = data
             })
-    
-       
     }
 
-    handleSort(data){
+
+
+    handleSort(data, type){
         this.setState({
-            coins: data
+            coins: data,
+            length: data.length,
+            sort_state: type
         })
     }
 
     onInputChange(term){
-        const coins = this.lockedCoins
+        const coins = [...this.lockedCoins]
         const lowerCase = term.toLowerCase()
         const result = coins.filter(item => item.name.toLowerCase().slice(0, lowerCase.length)===lowerCase)
         this.setState({
-            coins: result
+            coins: result,
+            length: result.length
         })
     }
 
     render(){
-        return (
+        const cryptocurrency = (
             <div className='App'>
-                {this.state.isLoading && (<i className="fas fa-spinner"></i>)}
-                <form>
-                    <input type="text"
-                        name="term"
-                        onChange={e => this.onInputChange(e.target.value)} />
-                </form>
+                <SearchBar change={(term) => this.onInputChange(term)} length={this.state.length} />
                 <table>
                     <thead>
-                        <Header onSort={(data)=>this.handleSort(data)}
-                                coins={this.state.coins} />
+                        <Header onSort={(data, type)=>this.handleSort(data, type)}
+                                    coins={this.state.coins}
+                                    sort={this.state.sort_state} />
                     </thead>
                     <tbody>
                         {this.state.coins.map((coin,i)=>{
@@ -72,8 +74,10 @@ class App extends React.Component{
                 </table>
             </div>
         )
-        
-        
+
+        const loading = (<div className="loader"></div>)
+
+        return this.state.isLoading ? loading : cryptocurrency
     }
 }
 
