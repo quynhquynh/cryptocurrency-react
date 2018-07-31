@@ -29,7 +29,9 @@ class App extends Component{
             })
     }
 
-
+    shouldComponentUpdate(nextProps, nextState){
+        return nextState.coins.length !== 0
+    }
 
     handleSort(data, type){
         this.setState({

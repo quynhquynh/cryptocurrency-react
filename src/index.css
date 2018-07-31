@@ -18,12 +18,30 @@ form{
     left: 0;
 }
 
-form::after{
+/* form::after{
     position: absolute;
     top: 0;
     content: attr(data-placeholder);
     pointer-events: none;
     opacity: 0.6;
+} */
+
+form > span{
+    position: relative;
+    background: lightblue;
+    border-color: lightblue;
+}
+
+form > span:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    top: 100%;
+    left: 40%;
+    border-top: 10px solid transparent;
+    border-top-color: inherit;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 }
 
 .loader {

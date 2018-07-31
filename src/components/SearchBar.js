@@ -21,6 +21,7 @@ class SearchBar extends React.Component{
                     name="term"
                     onChange={e => this.onInputChange(e.target.value)} 
                      />
+                <span>{`${this.props.length} coins`}</span>
             </form>
         )
     }
@@ -32,7 +33,6 @@ class SearchBar extends React.Component{
 
     
 }
-
 
 
 
