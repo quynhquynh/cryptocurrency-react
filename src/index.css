@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-    width: 100%;
-    margin: 0 auto;
-    font-family: 'Open Sans';
-    background-color: #f5f5f0;
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Open Sans';
+  background-color: #f5f5f0;
 }
 
-form{
-    margin: 40px;
-    text-align: center;
-    position: relative;
-    top: 0;
-    left: 0;
+form {
+  margin: 40px;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 /* form::after{
@@ -26,82 +26,91 @@ form{
     opacity: 0.6;
 } */
 
-form > span{
-    position: relative;
-    background: lightblue;
-    border-color: lightblue;
+form > span {
+  position: relative;
+  background: lightblue;
+  border-color: lightblue;
 }
 
-form > span:after{
-    content: '';
-    position: absolute;
-    width: 0;
-    top: 100%;
-    left: 40%;
-    border-top: 10px solid transparent;
-    border-top-color: inherit;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+form > span:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  top: 100%;
+  left: 40%;
+  border-top: 10px solid transparent;
+  border-top-color: inherit;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 
 .loader {
-    margin: 0 auto;
-    margin-top: 50px;
-    border: 8px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 8px solid black;
-    width: 80px;
-    height: 80px;
-    -webkit-animation: spin 1s linear infinite; /* Safari */
-    animation: spin 1s linear infinite;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid black;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
-  
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-
-th{
-    cursor: pointer;
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-table{
-    width: 60%;
-    margin: 0 auto;
-    border: solid 1px black;
+th {
+  cursor: pointer;
 }
 
-table th{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    background-color: #262626;
-    font-weight: 400;
-    text-align: center;
-    color: white;
+table {
+  width: 60%;
+  margin: 0 auto;
+  border: solid 1px black;
 }
 
-table tr{
-    background: white;
+table th {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  background-color: #262626;
+  font-weight: 400;
+  text-align: center;
+  color: white;
 }
 
-td{
-    padding: 10px;
+table tr {
+  background: white;
 }
 
-table th:first-child, table td:first-child{
-    width: 40%;
+td {
+  padding: 10px;
 }
 
-table th:nth-child(2), table td:nth-child(2), table th:nth-child(3), table td:nth-child(3){
-    width: 20%;
+table th:first-child,
+table td:first-child {
+  width: 40%;
 }
 
-
-
+table th:nth-child(2),
+table td:nth-child(2),
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 20%;
+}
